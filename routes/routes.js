@@ -2,18 +2,18 @@
 
 var path = require("path");
 
-var tableData = require("./tableArray");
-var waitListData = require("./waitArray");
+var tableData = require("../data/tableArray");
+var waitListData = require("../data/waitArray");
 
 
 module.exports = function(app) {
 
 app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "../html/tables.html"));
   });
   
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "../html/reserve.html"));
   });
   
 app.get("/api/tables", function(req, res) {
@@ -50,7 +50,7 @@ app.get("/api/waitlist", function(req, res) {
 
 
   app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "../html/index.html"));
   });
 
 };
