@@ -18,6 +18,10 @@
         .jumbotron h1 {
             font-size: 63px;
         }
+
+        .home-btn {
+            background: #fff;
+        }
     </style>
 </head>
 
@@ -26,16 +30,45 @@
         <div class="jumbotron">
             <h1 class="text-center"><i class="fas fa-fire fa-lg"></i> Hot Restaurant</h1>
             <hr>
-            <h2 class="text-center">We only have 5 tables! Book your seat before they all are gone!</h2>
+            <h2 class="text-center">Current Reservations and Waiting List</h2>
             <br>
 
             <div class="text-center">
-                <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><i
-                            class="fas fa-list"></i></span> View Tables</button></a>
                 <a href="/reserve"><button type="button" class="btn btn-lg btn-danger"><i
-                            class="fas fa-credit-card"></i> Make Reservation</button></a>
+                            class="fas fa-credit-card"></i></span> Make Reservation</button></a>
+                <a href="/"><button type="button" class="btn btn-lg btn-default home-btn"><i
+                            class="fas fa-home fa-lg"></i></span></button></a>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
 
+                <!-- Current Tables in Use -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Current Reservations</h4>
+                    </div>
+                    <div class="panel-body" id="tableSection">
+                        <div class="well" id="tableWell-01">
+                            <h2><span class="label label-primary">1</span> | Example</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Waiting List Panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Waiting List</h4>
+                    </div>
+                    <div class="panel-body" id="waitlistSection">
+                        <div class="well" id="waitlistWell-01">
+                            <h2><span class="label label-primary">1</span> | Example</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="footer">
