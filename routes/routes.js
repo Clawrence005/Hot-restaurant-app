@@ -52,9 +52,8 @@ app.get("/api/waitlist", function(req, res) {
 
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../html/index.html"));
-    console.log(counter);
     counter++;
-    console.log(counter);
+    
   });
 
 };
