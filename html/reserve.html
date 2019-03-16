@@ -41,14 +41,14 @@
         <div class="jumbotron">
             <h1 class="text-center"><i class="fas fa-fire fa-lg"></i> Hot Restaurant</h1>
             <hr>
-            <h2 class="text-center">We only have 5 tables! Book your seat before they all are gone!</h2>
+            <h2 class="text-center">We only have <span id="tableCount"></span></h2>
             <br>
 
             <div class="text-center">
                 <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><i
                     class="fas fa-list"></i></span> View Tables</button></a>
                 <a href="/"><button type="button" class="btn btn-lg btn-default home-btn"><i
-                    class="fas fa-home fa-lg"></i></span></button></a>
+                            class="fas fa-home fa-lg"></i></span></button></a>
             </div>
 
         </div>
@@ -141,6 +141,42 @@ $(".submit").on("click", function(){
 return false;
 
 });
+
+function runTableQuery() {
+
+// Here we get the location of the root page.
+// We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+var currentURL = window.location.origin;
+
+// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+$.ajax({ url: currentURL + "/api/tables", method: "GET" })
+    .done(function (tableData) {
+        var tableRemaining = 5 - tableData.length;
+        switch (tableRemaining) {
+            case 5:
+            $("#tableCount").text(tableRemaining + " tables available! Book your seat before they are all gone!");
+            break;
+            case 4:
+            $("#tableCount").text(tableRemaining + " tables left! Book your seat before they are all gone!");
+            break;
+            case 3:
+            $("#tableCount").text(tableRemaining + " tables left! Book your seat before they are all gone!");
+            break;
+            case 2:
+            $("#tableCount").text(tableRemaining + " tables left! Book your seat before they are all gone!");
+            break;
+            case 1:
+            $("#tableCount").text(tableRemaining + " table left! Book your seat before they are all gone!");
+            break;
+            case 0:
+            $("#tableCount").text(tableRemaining + " tables available, get on the waitlist!");
+            break;
+        }                
+       
+
+    });
+}
+runTableQuery();
     </script>
 </body>
 
