@@ -4,6 +4,7 @@ var path = require("path");
 
 var tableData = require("../data/tableArray");
 var waitListData = require("../data/waitArray");
+var counter = require("../data/counter");
 
 
 module.exports = function(app) {
@@ -51,6 +52,8 @@ app.get("/api/waitlist", function(req, res) {
 
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../html/index.html"));
+    counter++;
+    
   });
 
 };
